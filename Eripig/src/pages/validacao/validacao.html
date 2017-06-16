@@ -1,0 +1,27 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>validacao</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="cadastro" (ngSubmit)="entrar()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Usuario</ion-label>
+        <ion-input type="text" name="nome" formControlName="nome"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Senha</ion-label>
+        <ion-input type="text" name="senha" formControlName="senha" maxLength="8"></ion-input>
+      </ion-item>
+      <ion-item>
+        <button ion-button full block [disabled]="cadastro.invalid">Entrar</button>
+      </ion-item>
+    </ion-list>
+  </form>
+
+</ion-content>

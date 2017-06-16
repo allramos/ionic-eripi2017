@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Eripigram</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher (ionRefresh)="atualizarPagina($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <img [src]="fotoCapturada" *ngIf="fotoCapturada"/>
+
+  <ion-list *ngFor="let perfil of perfis">
+    <ion-list *ngFor="let postagem of perfil.postagens">
+
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-left (click)="abrirPerfil(perfil)">
+            <img [src]="perfil.fotoPerfil">
+          </ion-avatar>
+          <h2 (click)="abrirPerfil(perfil)">{{perfil.usuario}}</h2>
+          <p>{{postagem.data}}</p>
+        </ion-item>
+
+        <img [src]="postagem.foto">
+
+        <ion-card-content>
+          <p>{{postagem.legenda}}</p>
+        </ion-card-content>
+
+        <ion-row align-items-center>
+          <ion-col *ngIf="postagem.curtida">
+            <button ion-button color="primary" clear small icon-left (click)="curtir(postagem)">
+              <ion-icon name='thumbs-up'></ion-icon>
+              {{postagem.likes}} curtidas
+            </button>
+          </ion-col>
+          <ion-col *ngIf="!postagem.curtida">
+            <button ion-button color="dark" clear small icon-left (click)="curtir(postagem)">
+              <ion-icon name='thumbs-up'></ion-icon>
+              {{postagem.likes}} curtidas
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color="primary" clear small icon-left>
+              <ion-icon name='text'></ion-icon>
+              4 Comentários
+            </button>
+          </ion-col>
+          <ion-col center text-center>
+            <ion-note>
+              11h atrás
+            </ion-note>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+
+    </ion-list>
+  </ion-list>
+
+
+  <ion-fab right bottom>
+    <button ion-fab color="dark" (click)="bateRetrato()"><ion-icon name="camera"></ion-icon></button>
+  </ion-fab>
+</ion-content>

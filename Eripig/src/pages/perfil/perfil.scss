@@ -1,0 +1,35 @@
+page-perfil {
+
+  .superior{
+    background-color: rgb(101, 9, 9);
+    color: white;
+  }
+
+  .foto-perfil{
+    text-align: center;
+    font-size: large;
+    max-width: 140px;
+    border: 0px;
+    border-radius: 20%;
+    font-family: cursive;
+  }
+
+  .row-galeria{
+    text-align: center;
+    padding: 0px;
+  }
+
+  .col-galeria{
+    padding: 1px;
+  }
+
+  .foto-galeria{
+    width: auto;
+    max-width: 100%;
+
+  }
+
+  .sem-margem{
+    padding: inherit;
+  }
+}

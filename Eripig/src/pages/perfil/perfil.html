@@ -1,0 +1,103 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{perfil.usuario}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="mostrarAmigos()">
+        <ion-icon name='people'></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-card>
+
+    <ion-row align-items-center>
+      <ion-col col-6>
+        <div>
+          <img class="foto-perfil" [src]="perfil.fotoPerfil">
+        </div>
+      </ion-col>
+      <ion-col >
+        <div class="foto-perfil">
+          <h3 style="font-size: x-large;">{{perfil.nome}}</h3>
+        </div>
+        <div class="foto-perfil">
+          <p></p>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col>
+        <button ion-button icon-only clear  color="instagram">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-only clear color="twitter">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-only clear  color="github">
+          <ion-icon name="logo-github"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-only clear  color="instagram">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-list *ngFor="let postagem of perfil.postagens">
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-note>
+          {{postagem.data}}
+        </ion-note>
+      </ion-col>
+    </ion-row>
+
+    <img [src]="postagem.foto">
+
+    {{postagem.legenda}}
+
+
+    <ion-row align-items-center>
+      <ion-col *ngIf="postagem.curtida">
+        <button ion-button color="primary" clear small icon-left>
+          <ion-icon name='thumbs-up'></ion-icon>
+          {{postagem.likes}} curtidas
+        </button>
+      </ion-col>
+      <ion-col *ngIf="!postagem.curtida">
+        <button ion-button color="dark" clear small icon-left>
+          <ion-icon name='thumbs-up'></ion-icon>
+          {{postagem.likes}} curtidas
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-left>
+          <ion-icon name='text'></ion-icon>
+          4 Comentários
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          11h atrás
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+
+</ion-content>

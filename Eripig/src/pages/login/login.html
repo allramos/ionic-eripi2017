@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Eripigram</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="pega">
+  <h3 style="text-align: center; color: #fff;">Acesse sua conta</h3>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Usuário</ion-label>
+      <ion-input type="text" [(ngModel)]='usuario'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Senha</ion-label>
+      <ion-input type="password"  [(ngModel)]="senha"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button color="secondary" block round (click)="fazerLogin()">Entrar</button>
+  </div>
+
+  <p>
+    Usuário: ionic
+  </p>
+  <p>
+    Senha: ionic
+  </p>
+</ion-content>
